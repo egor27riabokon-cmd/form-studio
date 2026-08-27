@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import { withBasePath } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -61,7 +62,7 @@ export default function ContactPage() {
 
       <section className="relative aspect-[16/7] w-full overflow-hidden border-t border-line">
         <Image
-          src="/images/hero-house.jpg"
+          src={withBasePath("/images/hero-house.jpg")}
           alt="Glass-walled house among trees, seen from the terrace"
           fill
           sizes="100vw"

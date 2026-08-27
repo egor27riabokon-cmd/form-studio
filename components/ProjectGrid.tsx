@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Project } from "@/lib/projects";
 import Reveal from "@/components/Reveal";
+import { withBasePath } from "@/lib/basePath";
 
 const CATEGORIES = ["All", "Residential", "Cultural", "Hospitality", "Interiors"] as const;
 
@@ -43,7 +44,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
               <div className="relative aspect-[4/5] overflow-hidden bg-surface-2">
                 {p.heroImage ? (
                   <Image
-                    src={p.heroImage}
+                    src={withBasePath(p.heroImage)}
                     alt={p.name}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import { withBasePath } from "@/lib/basePath";
 
 export const metadata: Metadata = {
   title: "Studio",
@@ -47,7 +48,7 @@ export default function StudioPage() {
 
       <section className="relative aspect-[21/9] w-full overflow-hidden">
         <Image
-          src="/images/project-fold-hero.jpg"
+          src={withBasePath("/images/project-fold-hero.jpg")}
           alt="Board-formed concrete facade detail with autumn branches"
           fill
           sizes="100vw"

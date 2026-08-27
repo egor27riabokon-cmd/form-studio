@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { projects } from "@/lib/projects";
+import { withBasePath } from "@/lib/basePath";
 
 export default function Home() {
   const featured = projects.slice(0, 3);
@@ -11,7 +12,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex min-h-[92vh] items-end overflow-hidden">
         <Image
-          src="/images/hero-house.jpg"
+          src={withBasePath("/images/hero-house.jpg")}
           alt="A glass-walled modern house set among mature trees"
           fill
           priority
@@ -83,7 +84,7 @@ export default function Home() {
                   <div className="relative aspect-[4/5] overflow-hidden bg-surface-2">
                     {p.heroImage ? (
                       <Image
-                        src={p.heroImage}
+                        src={withBasePath(p.heroImage)}
                         alt={p.name}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

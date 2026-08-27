@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import Atmosphere from "@/components/Atmosphere";
 import { projects, getProject, getAdjacentProject } from "@/lib/projects";
+import { withBasePath } from "@/lib/basePath";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -24,7 +25,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.name} — FORM`,
       description: project.summary,
-      images: project.heroImage ? [project.heroImage] : undefined,
+      images: project.heroImage ? [withBasePath(project.heroImage)] : undefined,
     },
   };
 }
@@ -44,7 +45,7 @@ export default async function ProjectPage({
       <section className="relative flex min-h-[78vh] items-end overflow-hidden">
         {project.heroImage ? (
           <Image
-            src={project.heroImage}
+            src={withBasePath(project.heroImage)}
             alt={project.gallery[0]?.alt ?? project.name}
             fill
             priority
@@ -126,7 +127,7 @@ export default async function ProjectPage({
                       }`}
                     >
                       <Image
-                        src={g.src}
+                        src={withBasePath(g.src)}
                         alt={g.alt}
                         fill
                         sizes="(min-width: 640px) 50vw, 100vw"
