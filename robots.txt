@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://egor27riabokon-cmd.github.io/form-studio/sitemap.xml
